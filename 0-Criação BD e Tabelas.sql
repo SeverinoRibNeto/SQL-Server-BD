@@ -1,11 +1,11 @@
 /***************************/
-/*CriaÁ„o da Base de Dados*/
+/*Cria√ß√£o da Base de Dados*/
 /*************************/
 USE [master]
 GO
 DROP DATABASE [ProjetoEscolaBD]
 GO
--- COMANDO USADO CASO J¡ EXISTA O BANCO. USADO PARA DELETAR
+-- COMANDO USADO CASO J√Å EXISTA O BANCO. USADO PARA DELETAR
 
 
 USE [master]
@@ -25,7 +25,7 @@ ON(NAME=log_ProjetoEscolaBD,
 	FILEGROWTH = 10)
 
 /**********************/
-/*CriaÁ„o das Tabelas*/
+/*Cria√ß√£o das Tabelas*/
 /********************/
 
 USE [ProjetoEscolaBD]
@@ -34,7 +34,7 @@ GO --ESCOLHER A DATABASE PARA SE CRIAR AS TABELAS
 
 
 
---CRIA«√O TblTurma
+--CRIA√á√ÉO TblTurma
 
 CREATE TABLE TblTurma(
 	id INT IDENTITY
@@ -43,7 +43,7 @@ CREATE TABLE TblTurma(
 )
 --FIM TblTurma
 
---CRIA«√O TblCurso
+--CRIA√á√ÉO TblCurso
 CREATE TABLE TblCurso(
 	nome VARCHAR(60) NOT NULL,
 	codigo INT IDENTITY
@@ -51,7 +51,7 @@ CREATE TABLE TblCurso(
 )
 --FIM TblCurso
 
---CRIA«√O TblCidade
+--CRIA√á√ÉO TblCidade
 CREATE TABLE TblCidade(
 	id INT IDENTITY
 	CONSTRAINT PK_TblCidade PRIMARY KEY NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE TblCidade(
 )
 --FIM TblCidade
 
---CRIA«√O TblEstado
+--CRIA√á√ÉO TblEstado
 
 CREATE TABLE TblEstado(
 	nome VARCHAR(60) NOT NULL,
@@ -69,9 +69,9 @@ CREATE TABLE TblEstado(
 )
 --FIM TblEstado
 
---CRIA«√O TblProfessor
+--CRIA√á√ÉO TblProfessor
 CREATE TABLE TblProfessor(
-	matricula VARCHAR(8) --ANO + MES + INCREMENTO COME«ANDO POR 01
+	matricula VARCHAR(8) --ANO + MES + INCREMENTO COMEÔøΩANDO POR 01
 	CONSTRAINT PK_TblProfessor PRIMARY KEY NOT NULL,
 	nome VARCHAR(60) NOT NULL,
 	telefone VARCHAR(15),
@@ -86,10 +86,10 @@ CREATE TABLE TblProfessor(
 )
 -- FIM TblProfessor
 
---CRIA«√O TblAluno
+--CRIA√á√ÉO TblAluno
 CREATE TABLE TblAluno(
 	endereco VARCHAR(200) NOT NULL,
-	matricula VARCHAR(8) --ANO + INCREMENTO COME«ANDO POR 01 + MES
+	matricula VARCHAR(8) --ANO + INCREMENTO COME√áANDO POR 01 + MES
 	CONSTRAINT PK_TblAluno PRIMARY KEY NOT NULL,
 	nome VARCHAR(60) NOT NULL,
 	codigo_curso INT
@@ -108,7 +108,7 @@ CREATE TABLE TblAluno(
 
 --FIM TblAluno
 
---CRIA«√O TblDisciplina
+--CRIA√á√ÉO TblDisciplina
 CREATE TABLE TblDisciplina(
 	codigo TINYINT IDENTITY
 	CONSTRAINT PK_TblDisciplina PRIMARY KEY NOT NULL,
@@ -118,7 +118,7 @@ CREATE TABLE TblDisciplina(
 --FIM TblDisciplina
 
 
---CRIA«√O TblProva
+--CRIA√á√ÉO TblProva
 CREATE TABLE TblProva(
 	id INT IDENTITY
 	CONSTRAINT PK_TblProva PRIMARY KEY NOT NULL,
@@ -130,7 +130,7 @@ CREATE TABLE TblProva(
 
 --FIM TblProva
 
---CRIA«√O TblProfessorMinistra
+--CRIA√á√ÉO TblProfessorMinistra
 CREATE TABLE TblProfessorMinistra(
 	matricula_professor VARCHAR(8)
 	CONSTRAINT FK_ProfessorMinistra_Professor FOREIGN KEY
@@ -144,7 +144,7 @@ CREATE TABLE TblProfessorMinistra(
 
 
 
---CRIA«√O TblEnsina
+--CRIA√á√ÉO TblEnsina
 CREATE TABLE TblEnsina(
 	id_turma INT
 	CONSTRAINT FK_Ensina_Turma FOREIGN KEY
@@ -157,7 +157,7 @@ CREATE TABLE TblEnsina(
 --FIM TblEnsina
 
 
---CRIA«√O TblMedia
+--CRIA√á√ÉO TblMedia
 CREATE TABLE TblMedia(
 	matricula_aluno VARCHAR(8)
 	CONSTRAINT FK_Media_Aluno FOREIGN KEY
@@ -170,7 +170,7 @@ CREATE TABLE TblMedia(
 )
 --FIM TblMedia
 
---CRIA«√O TblDisciplinaCurso
+--CRIA√á√ÉO TblDisciplinaCurso
 CREATE TABLE TblDisciplinaCurso(
 	codigo_disciplina TINYINT
 	CONSTRAINT FK_DisciplinaCurso_Disciplina FOREIGN KEY
@@ -182,7 +182,7 @@ CREATE TABLE TblDisciplinaCurso(
 )
 --FIM TblDisciplinaCurso
 
---CRIA«√O TblAula
+--CRIA√á√ÉO TblAula
 CREATE TABLE TblAula(
 	data_aula SMALLDATETIME NOT NULL,
 	presenca VARCHAR(1) NOT NULL,
@@ -197,7 +197,7 @@ CREATE TABLE TblAula(
 
 --FIM TblAula
 
---CRIA«√O TblMensalidade
+--CRIA√á√ÉO TblMensalidade
 CREATE TABLE TblMensalidade(
 	id int IDENTITY
 	CONSTRAINT PK_TblMensalidade PRIMARY KEY NOT NULL,
@@ -211,7 +211,7 @@ CREATE TABLE TblMensalidade(
 )
 --FIM TblMensalidade
 
---CRIA«√O TblProvaAluno
+--CRIA√á√ÉO TblProvaAluno
 CREATE TABLE TblProvaAluno(
 	matricula_aluno VARCHAR(8)
 	CONSTRAINT FK_ProvaAluno_Aluno FOREIGN KEY
@@ -223,6 +223,6 @@ CREATE TABLE TblProvaAluno(
 )
 --FIM TblProvaAluno
 
---AlteraÁ„o TblCidade
+--Altera√ß√£o TblCidade
 USE [ProjetoEscolaBD]
 GO	
